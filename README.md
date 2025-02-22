@@ -1,7 +1,7 @@
 # Roll Dice Game - Solidity & React (ethers.js) 🎲
 
 ## Project Overview
-The **Roll Dice Game** is a blockchain-based luck game where players roll a dice (0-36, ⭐, 👻) up to **5 times per day** to earn points. Players can progress through different **milestone tiers** (Bronze, Silver, Gold, OG) based on their accumulated points. The game is built using:
+The **Roll Dice Game** is a blockchain-based luck game where players roll a dice (0-36, ⭐, 👻) up to **5 times per day** to earn points. Players can progress through different **milestone tiers** (Bronze, Silver, Gold, Platinum, Diamond, OG) based on their accumulated points. The game is built using:
 
 - **Solidity**: Smart contract logic for dice rolls, point calculation, milestone tracking, and daily resets.
 - **React (ethers.js)**: Frontend for **wallet connection, dice rolling, real-time stats**, and **contract interactions**.
@@ -16,59 +16,60 @@ The **Roll Dice Game** is a blockchain-based luck game where players roll a dice
    - **👻 (Ghost)** → **Halves** the previous points.  
    - **1-36** → Adds the rolled number to the player’s total score.  
 3️⃣ Players earn **milestones** based on their score:
-   - **Bronze** (100 points) - Max **100,000** passes  
-   - **Silver** (500 points) - Max **20,000** passes  
-   - **Gold** (1,000 points) - Max **2,000** passes  
-   - **OG** (2,000 points) - Max **333** passes  
+   - **Bronze** (250 points) - Max **250,000** passes  
+   - **Silver** (500 points) - Max **125,000** passes  
+   - **Gold** (900 points) - Max **50,000** passes  
+   - **Platinum** (1,800 points) - Max **25,000** passes  
+   - **Diamond** (3,600 points) - Max **12,500** passes  
+   - **OG** (5,000 points) - Max **1,000** passes  
 4️⃣ Once a milestone limit is reached, **no more players can claim that tier**.
 
+## Additional Features
 
-## How to Clone and Run the Project
+🎟 **Raffle Lottery (Luck-Based)**
+- Players get **2 turns daily**, but **each entry costs 20 points**.
+- Winning points range **between 1-100**.
 
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/rohitisog/monad.git
-cd monad
-```
+📅 **Daily Check-In Rewards**
+- **30 Days** → Gold Pass (5,000 points)
+- **60 Days** → Platinum Pass (2,000 points)
+- **90 Days** → OG Pass (1,000 points)
 
-### 2️⃣ Install Dependencies
-```sh
-npm install
-```
+## Technical Features
 
-### 3️⃣ Run the Development Server
-```sh
-npm run dev
-```
+✅ **Solidity Smart Contract**
+- Stores player data (points, rolls, elimination status)
+- Implements fair dice roll logic using `keccak256` hashing
+- Tracks milestone achievements & limits claims
+- Automatically resets daily rolls for players at UTC 00:00
 
-### 4️⃣ Connect MetaMask & Switch to Monad Testnet
-Ensure that you are connected to **Monad Testnet (Chain ID: 10143)**.
-- RPC: `https://testnet-rpc.monad.xyz`
-- Currency: `MON`
+✅ **React Frontend (ethers.js, No Wagmi)**
+- **MetaMask Wallet Connection**
+- **Real-time Player Stats (Points, Rolls Left, Milestones)**
+- **Interact with the Smart Contract using ethers.js**
+- **Dice Roll Button (Disabled if eliminated or out of rolls)**
 
-If not, the app will **prompt you to switch networks** automatically.
+✅ **Blockchain Security & Fairness**
+- **On-chain RNG (Random Number Generation)** for fair rolls
+- **Immutable smart contract logic** ensures no manipulation
 
-## How to Play?
+## Future Enhancements
 
-1️⃣ **Connect your MetaMask wallet** on the React frontend.
+🃏 **NFT Collection (Dice-Based)**
+- **Minting available only to Platinum, Diamond, and OG holders**.
 
-2️⃣ **Click "Roll Dice"** (up to 5 times daily).
+🔥 **Testnet Performance → Whitelist NFT → Testnet NFT Minting**
 
-3️⃣ **Watch your points update in real-time** based on the dice roll result.
+## Feedback & Open Questions:
 
-4️⃣ **If you hit a milestone**, your progress is recorded on-chain.
+**What happens when rolls are 0?**  
+→ No more turns for that day. Open to suggestions for alternatives.
 
-5️⃣ **Check back the next day** (after **UTC 00:00**) to roll again!
+**What is a milestone?**  
+→ Defined points thresholds unlocking different phases (Bronze → OG).
 
-## Future Enhancements (Next Steps)
-
-🚀 **Leaderboard** → Track top players & biggest milestones.  
-🎁 **NFT Rewards** → Earn NFTs for achieving OG status.  
-🎨 **Animated Dice Rolls** → Make rolling more interactive.  
-📈 **Stats Dashboard** → Show global player rankings & activity.  
-
-## Final Thoughts 💡
-This project is a **fun, skill-based blockchain game** that combines **luck, strategy, and on-chain progression**. Built using **Solidity, React, and ethers.js**, it showcases **real-world smart contract interactions** while offering an engaging user experience. 🚀
+**How to make it more interactive?**  
+→ Possible additions: leaderboard, streak-based bonuses, or unique dice effects.
 
 🎲 **Ready to roll the dice?** Connect your wallet & test your luck! 🔥
 
