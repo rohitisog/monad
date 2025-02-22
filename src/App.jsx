@@ -64,7 +64,7 @@ const App = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <h1 className="text-3xl font-bold">Roll Dice Game 🎲</h1>
+      <h1 className="text-3xl font-bold">Roll Dice Fun Game 🎲</h1>
       {account ? (
         <>
           <p className="mt-2 text-lg">Points: {points}</p>
