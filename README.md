@@ -22,23 +22,6 @@ The **Roll Dice Game** is a blockchain-based luck game where players roll a dice
    - **OG** (2,000 points) - Max **333** passes  
 4️⃣ Once a milestone limit is reached, **no more players can claim that tier**.
 
-## Technical Features
-
-✅ **Solidity Smart Contract**
-- Stores player data (points, rolls, elimination status)
-- Implements fair dice roll logic using `keccak256` hashing
-- Tracks milestone achievements & limits claims
-- Automatically resets daily rolls for players at UTC 00:00
-
-✅ **React Frontend (ethers.js, No Wagmi)**
-- **MetaMask Wallet Connection**
-- **Real-time Player Stats (Points, Rolls Left, Milestones)**
-- **Interact with the Smart Contract using ethers.js**
-- **Dice Roll Button (Disabled if eliminated or out of rolls)**
-
-✅ **Blockchain Security & Fairness**
-- **On-chain RNG (Random Number Generation)** for fair rolls
-- **Immutable smart contract logic** ensures no manipulation
 
 ## How to Clone and Run the Project
 
