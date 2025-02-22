@@ -38,20 +38,24 @@ const GameBoard = ({ account, contract }) => {
 
   return (
     <div className="mt-6 text-center">
-      <p className="text-lg">Points: {points}</p>
-      <p>Rolls Left: {rollsLeft}</p>
-      <p>Milestone: {milestone}</p>
-      {isEliminated ? (
-        <p className="text-red-500">You are eliminated for today. Try again tomorrow!</p>
-      ) : (
-        <button
-          className="mt-4 bg-blue-500 px-6 py-2 rounded-lg"
-          onClick={rollDice}
-          disabled={rollsLeft <= 0}
-        >
-          Roll Dice 🎲
-        </button>
-      )}
+      <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-xl font-bold mb-2">Game Stats</h2>
+        <p className="text-lg font-semibold">Points: {points}</p>
+        <p className="text-lg">Rolls Left: {rollsLeft}</p>
+        <p className="text-lg font-semibold text-purple-700">Milestone: {milestone}</p>
+
+        {isEliminated ? (
+          <p className="text-red-500 font-bold mt-2">You are eliminated for today. Try again tomorrow!</p>
+        ) : (
+          <button
+            className="mt-4 bg-blue-500 px-6 py-2 rounded-lg text-white font-semibold hover:bg-blue-600 transition-all"
+            onClick={rollDice}
+            disabled={rollsLeft <= 0}
+          >
+            Roll Dice 🎲
+          </button>
+        )}
+      </div>
     </div>
   );
 };
