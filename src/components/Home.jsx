@@ -81,6 +81,7 @@ const Home = () => {
   }, []);
 
   return (
+    <>
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
       <div className="w-full max-w-md bg-gradient-to-br from-purple-600 to-indigo-900 shadow-lg rounded-2xl p-6 text-center">
         <h1 className="text-3xl font-bold text-white mb-4">Roll Dice Fun Game 🎲</h1>
@@ -102,6 +103,7 @@ const Home = () => {
         {account && network === MONAD_TESTNET_PARAMS.chainId && <GameBoard account={account} contract={contract} />}
       </div>
     </div>
+    </>
   );
 };
 
