@@ -30,23 +30,25 @@ const GameBoard = ({ account, contract }) => {
     setRolling(true); // Start rolling animation
     setResultEffect(null); // Reset previous effect
 
-    setTimeout(async () => {
-      try {
-        const tx = await contract.rollDice();
-        await tx.wait(); // Wait for the transaction to be confirmed
+    try {
+      const tx = await contract.rollDice();
+      await tx.wait(); // Ensure transaction is confirmed before fetching data
 
-        await fetchPlayerData(); // Ensure updated data is fetched
-        triggerResultEffect();
-      } catch (error) {
-        console.error("Error rolling dice:", error);
-      }
-      setRolling(false); // Stop rolling animation
-    }, 5000); // Roll animation duration (5 seconds)
+      await fetchPlayerData(); // Fetch latest points & rolls after confirmation
+      triggerResultEffect(); // Trigger visual effect for result
+    } catch (error) {
+      console.error("Error rolling dice:", error);
+    }
+
+    setTimeout(() => {
+      setRolling(false); // Stop rolling animation after UI updates
+    }, 500); // Slight delay ensures UI updates before resetting button
   };
 
   const triggerResultEffect = () => {
     const effects = ["⭐", "💨", "🎉", "🔥"];
     setResultEffect(effects[Math.floor(Math.random() * effects.length)]);
+
     setTimeout(() => setResultEffect(null), 2000); // Hide effect after 2s
   };
 
